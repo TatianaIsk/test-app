@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "type": "Грузовой",
+    "driver": {
+      "id": 101,
+      "name": "John Doe",
+      "phone": "123-456-7890"
+    },
+    "position": {
+      "latitude": 51.5284,
+      "longitude": -0.0761
+    }
+  },
+  {
+    "id": 2,
+    "type": "Пассажирский",
+    "driver": {
+      "id": 102,
+      "name": "Jane Smith",
+      "phone": "987-654-3210"
+    },
+    "position": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    }
+  },
+  {
+    "id": 3,
+    "type": "Спецтранспорт",
+    "driver": {
+      "id": 103,
+      "name": "David Johnson",
+      "phone": "555-123-4567"
+    },
+    "position": {
+      "latitude": 51.4964,
+      "longitude": -0.1014
+    }
+  },
+  {
+    "id": 4,
+    "type": "Грузовой",
+    "driver": {
+      "id": 104,
+      "name": "Emily Brown",
+      "phone": "111-222-3333"
+    },
+    "position": {
+      "latitude": 51.5121,
+      "longitude": -0.1188
+    }
+  },
+  {
+    "id": 5,
+    "type": "Пассажирский",
+    "driver": {
+      "id": 105,
+      "name": "Michael Johnson",
+      "phone": "444-555-6666"
+    },
+    "position": {
+      "latitude": 51.4950,
+      "longitude": -0.1445
+    }
+  },
+  {
+    "id": 6,
+    "type": "Спецтранспорт",
+    "driver": {
+      "id": 106,
+      "name": "Sarah Davis",
+      "phone": "777-888-9999"
+    },
+    "position": {
+      "latitude": 51.5277,
+      "longitude": -0.0463
+    }
+  },
+  {
+    "id": 7,
+    "type": "Грузовой",
+    "driver": {
+      "id": 107,
+      "name": "Robert Wilson",
+      "phone": "222-333-4444"
+    },
+    "position": {
+      "latitude": 51.5186,
+      "longitude": -0.0632
+    }
+  },
+  {
+    "id": 8,
+    "type": "Пассажирский",
+    "driver": {
+      "id": 108,
+      "name": "Olivia Anderson",
+      "phone": "555-666-7777"
+    },
+    "position": {
+      "latitude": 51.5432,
+      "longitude": -0.0861
+    }
+  },
+  {
+    "id": 9,
+    "type": "Спецтранспорт",
+    "driver": {
+      "id": 109,
+      "name": "Daniel Thompson",
+      "phone": "999-888-7777"
+    },
+    "position": {
+      "latitude": 51.5340,
+      "longitude": -0.1111
+    }
+  },
+  {
+    "id": 10,
+    "type": "Грузовой",
+    "driver": {
+      "id": 110,
+      "name": "Sophia Lee",
+      "phone": "123-123-1234"
+    },
+    "position": {
+      "latitude": 51.5020,
+      "longitude": -0.0899
+    }
+  }
+]

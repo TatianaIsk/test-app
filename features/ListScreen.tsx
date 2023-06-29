@@ -24,12 +24,29 @@ const ListScreen: React.FC = () => {
         };
     }
 
+    //вывод данных из json
+
     useEffect(() => {
         setVehicles([...data]);
         setFilteredVehicles([...data]);
         setTypes([...new Set(data.map((vehicle) => vehicle.type))]);
     }, []);
 
+    //фильтрация пользователей по категориям
+
+    useEffect(() => {
+        if (selectedType === "" && vehicles.length > 0) {
+            const filteredData = vehicles;
+            setFilteredVehicles(filteredData);
+        } else if (selectedType !== "" && vehicles.length === 0) {
+            setFilteredVehicles([]);
+        } else {
+            const filteredData = vehicles.filter((vehicle) => vehicle.type === selectedType);
+            setFilteredVehicles(filteredData);
+        }
+    }, [selectedType, vehicles])
+
+    //навигация для перехода на страницу нужного пользователя
     const navigateToDetails = (vehicleId: number) => {
         navigation.navigate("UserDetails", { vehicleId });
     };

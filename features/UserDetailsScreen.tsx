@@ -1,6 +1,7 @@
 import React from "react";
-import {View, Text, StyleSheet} from "react-native";
+import {View, Text, StyleSheet, Linking} from "react-native";
 import {useNavigation, useRoute} from "@react-navigation/native";
+import { Link } from 'react-router-dom';
 
 import data from "../vehicle.json";
 
@@ -19,12 +20,25 @@ const UserScreen: React.FC<UserScreenProps> = () => {
     const vehicleId = route.params?.vehicleId;
     const vehicle = data.find((vehicle) => vehicle.id === vehicleId);
 
+    const phoneNumber = vehicle?.driver.phone;
+    const whatsappLink = `whatsapp://send?phone=${phoneNumber}`;
+
     const handleCall = () => {
         navigation.navigate("List", {phoneNumber: vehicle?.driver.phone});
     };
 
+    //перенаправление на WhatsApp
     const handleSendMessage = () => {
-        navigation.navigate("List", {phoneNumber: vehicle?.driver.phone});
+        const vehicle = {
+            driver: {
+                phone: ``
+            }
+        };
+
+        if (vehicle.driver && vehicle.driver.phone) {
+            const whatsappLink = `https://wa.me/` + vehicle.driver.phone + `?text=Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе`;
+            window.open(whatsappLink, `_blank`);
+        }
     };
 
     return (

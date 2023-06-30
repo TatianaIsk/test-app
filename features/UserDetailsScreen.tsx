@@ -1,7 +1,6 @@
 import React from "react";
-import {View, Text, StyleSheet, Linking} from "react-native";
+import {View, Text, StyleSheet, Linking, Platform} from "react-native";
 import {useNavigation, useRoute} from "@react-navigation/native";
-import { Link } from 'react-router-dom';
 
 import data from "../vehicle.json";
 
@@ -14,7 +13,6 @@ type UserScreenProps = {
 };
 
 const UserScreen: React.FC<UserScreenProps> = () => {
-    const navigation = useNavigation();
     const route = useRoute();
 
     const vehicleId = route.params?.vehicleId;
@@ -23,21 +21,28 @@ const UserScreen: React.FC<UserScreenProps> = () => {
     const phoneNumber = vehicle?.driver.phone;
     const whatsappLink = `whatsapp://send?phone=${phoneNumber}`;
 
+    //переход на звонок водителю
     const handleCall = () => {
-        navigation.navigate("List", {phoneNumber: vehicle?.driver.phone});
+        const url = `${Platform.OS === 'ios' ? 'telprompt:' : 'tel:'}${vehicle?.driver.phone}`;
+
+        Linking.canOpenURL(url).then(canOpen => {
+            if (canOpen) {
+                Linking.openURL(url).catch((e) => Promise.reject(e));
+            }
+        });
     };
 
-    //перенаправление на WhatsApp
+    //переход на WhatsApp
     const handleSendMessage = () => {
         const vehicle = {
             driver: {
-                phone: ``
+                phone: ''
             }
         };
 
         if (vehicle.driver && vehicle.driver.phone) {
-            const whatsappLink = `https://wa.me/` + vehicle.driver.phone + `?text=Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе`;
-            window.open(whatsappLink, `_blank`);
+            const whatsappLink = `https://wa.me/${vehicle.driver.phone}?text=Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе`;
+            window.open(whatsappLink, '_blank');
         }
     };
 

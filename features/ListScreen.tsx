@@ -48,7 +48,7 @@ const ListScreen: React.FC = () => {
 
     //навигация для перехода на страницу нужного пользователя
     const navigateToDetails = (vehicleId: number) => {
-        navigation.navigate("UserDetails", { vehicleId });
+        navigation.navigate('UserDetails', { vehicleId });
     };
 
     return (
